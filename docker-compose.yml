@@ -1,0 +1,21 @@
+version: "3.3"
+
+networks:
+  pg_data:
+    external: true
+
+services:
+
+  redis:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin4
+    ports:
+      - 4567:80
+    volumes:
+      - /var/lib/pgadmin/store:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@email.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    networks:
+      - "pg_data"
+      - "default"
