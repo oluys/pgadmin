@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.8"
 
 networks:
   pg_data:
@@ -12,10 +12,13 @@ services:
     ports:
       - 4567:80
     volumes:
-      - /var/lib/pgadmin/store:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: user@email.com
       PGADMIN_DEFAULT_PASSWORD: password
     networks:
       - "pg_data"
       - "default"
+
+volumes:
+  pgadmin-data:
