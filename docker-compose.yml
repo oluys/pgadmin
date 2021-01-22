@@ -1,8 +1,8 @@
 version: "3.8"
 
 networks:
-  pg_data:
-    external: true
+  pgadmin-network:
+    name: pgadmin-network
 
 services:
 
@@ -17,8 +17,8 @@ services:
       PGADMIN_DEFAULT_EMAIL: user@email.com
       PGADMIN_DEFAULT_PASSWORD: password
     networks:
-      - "pg_data"
-      - "default"
+      - pgadmin-network
 
 volumes:
   pgadmin-data:
+    name: pgadmin-data
